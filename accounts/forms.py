@@ -11,7 +11,7 @@ class UserLoginForm(forms.Form):
         widget=forms.PasswordInput(attrs={'placeholder': 'Password'})
     )
 
-# Admin Login Form (Email-based)
+# Admin Login Form 
 class AdminLoginForm(forms.Form):
     email = forms.EmailField(
         widget=forms.EmailInput(attrs={'placeholder': 'Email'})
@@ -20,7 +20,7 @@ class AdminLoginForm(forms.Form):
         widget=forms.PasswordInput(attrs={'placeholder': 'Password'})
     )
 
-# User Registration Form (with Password Confirmation)
+# User Registration Form 
 class RegistrationForm(forms.ModelForm):
     password = forms.CharField(
         widget=forms.PasswordInput(attrs={'placeholder': 'Password'})
@@ -33,7 +33,7 @@ class RegistrationForm(forms.ModelForm):
         model = User
         fields = ['username', 'email', 'password']
 
-    # Validate Passwords Match
+   
     def clean(self):
         cleaned_data = super().clean()
         password = cleaned_data.get("password")
